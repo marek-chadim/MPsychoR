@@ -1,6 +1,9 @@
 ## ----------------------------------- Chapter 1: Classical Test Theory --------------------------
+#install.packages("MPsychoR")
+#install.packages("psych")
 library("MPsychoR")
 library("psych")
+
 data("Rmotivation")
 
 ## ----- reliability
@@ -37,6 +40,7 @@ library("lme4")
 VarCorr(lmer(value ~ (1|person) + (1|item), data = Hyblong))
 
 library("gtheory")
+#install.packages("gtheory")
 gfit <- gstudy(data = Hyblong, formula = value ~ (1|person) + (1|item))
 dfit <- dstudy(gfit, colname.objects = "person", colname.scores = "value", data = Hyblong)
 round(dfit$generalizability, 3)
@@ -58,3 +62,8 @@ dfit$var.error.rel
 dfit$sem.rel
 dfit$dependability
 dfit$generalizability
+
+
+
+
+
